@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// use App\Http\Controllers\testController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +22,27 @@ Route::get('/', function () {
 
 Route::get('Message/{name}/{id?}',function ($name , $id = null){
     echo 'Student Data name:'.$name.'& id = '.$id;
-})->where(['id' => '[0-9]+','name'=>'[a-zA-Z]+']);
+})->where(['name'=>'[a-zA-Z]+']);
 //->where('id','[0-9]+')->where('name','[a-zA-Z]+');
 
+
+Route::get('Users/{id}',function ($id){
+    echo $id;
+});
+
+
+
+//  Route::get("Message",[testController::class,'message']); 
+
+
+Route::get("Message",'testController@message'); 
+Route::get("UsersDetails",'testController@details'); 
+
+Route::get('Users/Create',[UserController::class,'create']);
+
+Route::post('Users/Store',[UserController::class,'store']);
+
+Route::get('Users/Info',[UserController::class,'UserInfo']);
 
 
 
