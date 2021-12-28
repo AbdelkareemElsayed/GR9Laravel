@@ -27,7 +27,7 @@
 
   <h2>Register</h2>
   <form  action="{{ url('/Users/Store') }}" method="post">
-    
+
     @csrf
 
   <div class="form-group">
@@ -45,8 +45,20 @@
     <label for="exampleInputPassword">New Password</label>
     <input type="password"  name="password"  class="form-control" id="exampleInputPassword1" placeholder="Password">
   </div>
- 
-  
+
+
+  <div class="form-group">
+    <label for="exampleInputPassword">Departments</label>
+    <select   name="dep_id"  class="form-control">
+
+        @foreach ($departments as  $value)
+         <option value="{{$value->id}}">{{$value->title}}</option>
+        @endforeach
+
+    </select>
+  </div>
+
+
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </div>

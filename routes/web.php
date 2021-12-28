@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\testController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,23 +32,35 @@ Route::get('Users/{id}',function ($id){
 
 
 
-//  Route::get("Message",[testController::class,'message']); 
+//  Route::get("Message",[testController::class,'message']);
 
 
-Route::get("Message",'testController@message'); 
-Route::get("UsersDetails",'testController@details'); 
+Route::get("Message",'testController@message');
+Route::get("UsersDetails",'testController@details');
+Route::get('Users/Create',[AdminController::class,'create']);
+Route::post('Users/Store',[AdminController::class,'store']);
+Route::get('Users/Info',[AdminController::class,'UserInfo']);
 
-Route::get('Users/Create',[UserController::class,'create']);
+Route::get('Users', [AdminController::class, 'index']);
+Route::get('Users/remove/{id}', [AdminController::class, 'destroy']);
+Route::get('Users/edit/{id}', [AdminController::class, 'edit']);
+Route::post('Users/update', [AdminController::class, 'update']);
 
-Route::post('Users/Store',[UserController::class,'store']);
+#Auth ....
+Route::get('Login', [AdminController::class, 'Login']);
+Route::post('DoLogin', [AdminController::class, 'DoLogin']);
+Route::get('logout', [AdminController::class, 'logout']);
 
-Route::get('Users/Info',[UserController::class,'UserInfo']);
+
+
+
+
 
 
 
 //  Route::get("TestMessage",function (){
 //     return view('message');
-// }); 
+// });
 
 // Route::view('TestMessage','message');
 
@@ -57,13 +69,13 @@ Route::get('Users/Info',[UserController::class,'UserInfo']);
 
 
 /*
- get 
- post 
+ get
+ post
  put
- patch 
- delete 
- option 
- match 
+ patch
+ delete
+ option
+ match
  view
- resource 
+ resource
 */
