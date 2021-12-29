@@ -50,10 +50,10 @@
 
         </div>
 
-         {{ 'Welcome , '.auth()->user()->name }}
+         {{ 'Welcome , '}}
          <br>
 
-        <a href="{{url('/Users/Create')}}">+ Account</a> ||  <a href="{{url('/logout')}}">LogOut</a>
+        <a href="{{url('/Users/Create')}}">+ Account</a> || <a href="{{url('/Blog')}}">Blog</a> ||  <a href="{{url('/logout')}}">LogOut</a>
 
 
 

@@ -15,16 +15,16 @@ class AdminController extends Controller
 
   public function index(){
 
-      if(auth()->check()){
+    //   if(auth()->check()){
 
-     $data =   Admin::join('departments','users.dep_id','=','departments.id')->select('users.*','departments.title')->get();
+     $data =   Admin::join('departments','admins.dep_id','=','departments.id')->select('admins.*','departments.title')->get();
     //leftjoin , rightjoin ....
 
      return view('Users.index',['data' => $data]);
 
-      }else{
-          return redirect(url('/Login'));
-      }
+    //   }else{
+    //       return redirect(url('/Login'));
+    //   }
 
   }
 
@@ -150,8 +150,8 @@ class AdminController extends Controller
           "password" => "required|min:6"
       ]);
 
-
-    if(auth()->attempt($data)){
+//auth()->guard('admin')->attempt($data)
+    if(auth('admin')->attempt($data)){
         return redirect(url('/Users'));
     }else{
         return redirect('/Login');
@@ -162,7 +162,7 @@ class AdminController extends Controller
 
 
   public function logout(){
-      auth()->logout();
+      auth('admin')->logout();
       return redirect(url('/Login'));
   }
 
