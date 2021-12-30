@@ -37,7 +37,7 @@
 
 
         <div class="page-header">
-            <h1>List Blogs </h1>
+            <h1> {{trans('web.l_blog')}} </h1>
             <br>
 
              {{  session()->get('Message')  }}

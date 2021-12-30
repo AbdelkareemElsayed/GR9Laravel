@@ -73,6 +73,16 @@ Route::resource('Blog', blogController::class);   //'blogController'
 
 
 
+Route::get('Lang/{lang}',function ($lang){
+
+    session()->put('lang',$lang);
+
+    return back();
+
+});
+
+
+
 
 //  Route::get("TestMessage",function (){
 //     return view('message');

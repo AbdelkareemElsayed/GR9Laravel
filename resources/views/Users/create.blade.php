@@ -25,30 +25,30 @@
 @endif
 
 
-  <h2>Register</h2>
+  <h2>{{trans('web.re')}}</h2>
   <form  action="{{ url('/Users/Store') }}" method="post">
 
     @csrf
 
   <div class="form-group">
-    <label for="exampleInputName">Name</label>
+    <label for="exampleInputName">{{trans('web.name')}}</label>
     <input type="text" name="name" class="form-control" id="exampleInputName" aria-describedby="" placeholder="Enter Name" value="{{ old('name') }}">
   </div>
 
 
   <div class="form-group">
-    <label for="exampleInputEmail">Email address</label>
+    <label for="exampleInputEmail">{{trans('web.email')}}</label>
     <input type="email" name="email"  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" value="{{ old('email') }}">
   </div>
 
   <div class="form-group">
-    <label for="exampleInputPassword">New Password</label>
+    <label for="exampleInputPassword">{{trans('web.password')}}</label>
     <input type="password"  name="password"  class="form-control" id="exampleInputPassword1" placeholder="Password">
   </div>
 
 
   <div class="form-group">
-    <label for="exampleInputPassword">Departments</label>
+    <label for="exampleInputPassword">{{trans('web.department')}}</label>
     <select   name="dep_id"  class="form-control">
 
         @foreach ($departments as  $value)
@@ -59,7 +59,7 @@
   </div>
 
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-primary">{{trans('web.save')}}</button>
 </form>
 </div>
 

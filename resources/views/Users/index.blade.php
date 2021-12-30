@@ -32,12 +32,16 @@
 
 <body>
 
+
+          {{-- {{App()->getLocale()}} --}}
+
+
     <!-- container -->
     <div class="container">
 
 
         <div class="page-header">
-            <h1>Read Users </h1>
+            <h1>{{ trans('web.r_user')  }}</h1>
             <br>
 
              {{  session()->get('Message')  }}
@@ -50,12 +54,14 @@
 
         </div>
 
-         {{ 'Welcome , '}}
+         {{ trans('web.welcome').' , '.auth('admin')->user()->name}}
          <br>
 
-        <a href="{{url('/Users/Create')}}">+ Account</a> || <a href="{{url('/Blog')}}">Blog</a> ||  <a href="{{url('/logout')}}">LogOut</a>
+        <a href="{{url('/Users/Create')}}">+ {{trans('web.Account')}}</a> || <a href="{{url('/Blog')}}">{{trans('web.blog')}}</a> ||  <a href="{{url('/logout')}}">{{trans('web.logout')}}</a>
 
+       <br>
 
+       <a href="{{url('Lang/en')}}">en</a> || <a href="{{url('Lang/ar')}}">ع</a>
 
 
 
